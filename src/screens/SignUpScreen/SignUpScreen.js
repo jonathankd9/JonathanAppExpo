@@ -11,8 +11,7 @@ import Logo from '../../../assets/images/Logo_1.png';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons';
-// import SocialSignInButtons from '../../components/SocialSignInButtons';
-// import {useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const SignUpScreen = () => {
   const [username, setUsername] = useState('');
@@ -21,12 +20,13 @@ const SignUpScreen = () => {
   const [passwordRepeat, setPasswordRepeat] = useState('');
 
   const {height} = useWindowDimensions();
-//   const navigation = useNavigation();
+  const navigation = useNavigation();
 
-//   const onSignInPressed = () => {
-//     // validate user
-//     navigation.navigate('Home');
-//   };
+  const onSignInPressed = () => {
+    // validate user
+    navigation.navigate('SignIn');
+    console.warn('Sign In');
+  };
 
     // const onSignInPressed = () => {
     //     console.warn('Sign In');
@@ -36,6 +36,7 @@ const SignUpScreen = () => {
   };
 
   const onRegisterPressed = () => {
+    navigation.navigate('ConfirmEmail')
     console.warn('Registered');
   };
   const onPrivacyPolicyPressed = () => {
@@ -82,7 +83,7 @@ const SignUpScreen = () => {
 
         <CustomButton
           text="Have an account? Sign in"
-        //   onPress={onSignUpPressed}
+          onPress={onSignInPressed}
           type="TERTIARY"
         />
       </View>
